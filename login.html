@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login - Nindya Portfolio</title>
+
+<style>
+
+:root{
+    --primary:#3D441E;
+    --secondary:#6D712E;
+    --accent:#737B4C;
+    --light:#A2A569;
+    --cream:#B0AA7E;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+    );
+}
+
+.login-container{
+
+    width:400px;
+    max-width:90%;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.logo{
+
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo h1{
+    color:var(--primary);
+}
+
+.logo p{
+    color:#666;
+}
+
+.input-group{
+
+    margin-bottom:20px;
+}
+
+.input-group label{
+
+    display:block;
+    margin-bottom:8px;
+
+    color:#333;
+}
+
+.input-group input{
+
+    width:100%;
+    padding:12px;
+
+    border:2px solid #ddd;
+
+    border-radius:10px;
+
+    outline:none;
+}
+
+.input-group input:focus{
+
+    border-color:var(--secondary);
+}
+
+.login-btn{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+.login-btn:hover{
+
+    background:var(--secondary);
+}
+
+.links{
+
+    margin-top:20px;
+
+    text-align:center;
+}
+
+.links a{
+
+    display:block;
+
+    margin:10px 0;
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-weight:500;
+}
+
+.links a:hover{
+
+    text-decoration:underline;
+}
+
+.error{
+
+    color:red;
+
+    text-align:center;
+
+    margin-top:10px;
+}
+
+.success{
+
+    color:green;
+
+    text-align:center;
+
+    margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="logo">
+
+        <h1>Nindya</h1>
+
+        <p>Portfolio Login</p>
+
+    </div>
+
+    <form id="loginForm">
+
+        <div class="input-group">
+
+            <label>Username</label>
+
+            <input
+            type="text"
+            id="username"
+            required>
+        </div>
+
+        <div class="input-group">
+
+            <label>Password</label>
+
+            <input
+            type="password"
+            id="password"
+            required>
+        </div>
+
+        <button
+        type="submit"
+        class="login-btn">
+
+        Login
+
+        </button>
+
+        <div id="message"></div>
+
+    </form>
+
+    <div class="links">
+
+        <a href="register.html">
+            Daftar Akun
+        </a>
+
+        <a href="forgot-password.html">
+            Lupa Password?
+        </a>
+
+        <a href="../index.html">
+            Kembali ke Beranda
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+
+const defaultUsers = [
+
+{
+    username:"heri",
+    password:"123"
+},
+
+{
+    username:"user1",
+    email:"user@gmail.com",
+    password:"123"
+}
+
+];
+
+if(!localStorage.getItem("users")){
+
+    localStorage.setItem(
+    "users",
+    JSON.stringify(defaultUsers)
+    );
+}
+
+document
+.getElementById("loginForm")
+
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const username =
+    document.getElementById("username").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    const users =
+    JSON.parse(
+    localStorage.getItem("users")
+    );
+
+    const user =
+    users.find(
+    u =>
+    u.username === username &&
+    u.password === password
+    );
+
+    const message =
+    document.getElementById("message");
+
+    if(user){
+
+        message.innerHTML =
+        "<p class='success'>Login Berhasil!</p>";
+
+        setTimeout(()=>{
+
+            window.location.href =
+            "../index.html";
+
+        },1000);
+
+    }else{
+
+        message.innerHTML =
+        "<p class='error'>Username atau Password Salah!</p>";
+    }
+
+});
+
+</script>
+
+</body>
+</html>
