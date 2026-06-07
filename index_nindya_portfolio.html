@@ -1,425 +1,326 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nindya Portfolio</title>
+    <meta charset="UTF-8">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-<style>
-.gallery{
-    display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
+    <title>Nindya Portfolio</title>
 
-    gap:25px;
-}
+    <link rel="stylesheet"
+    href="css/style.css">
 
-.gallery-item{
-    overflow:hidden;
-    border-radius:20px;
-
-    cursor:pointer;
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,.15);
-
-    transition:.4s;
-}
-
-.gallery-item:hover{
-    transform:translateY(-10px);
-}
-
-.gallery-item img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-
-    display:block;
-
-    transition:.5s;
-}
-
-.gallery-item:hover img{
-    transform:scale(1.1);
-}
-:root{
-    --primary:#3D441E;
-    --secondary:#6D712E;
-    --accent:#737B4C;
-    --light:#A2A569;
-    --cream:#B0AA7E;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#f5f5f0;
-}
-
-/* NAVBAR */
-
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:1000;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:20px 8%;
-
-    background:rgba(61,68,30,.95);
-    backdrop-filter:blur(10px);
-}
-
-.logo{
-    color:white;
-    font-size:24px;
-    font-weight:700;
-}
-
-.nav-links{
-    display:flex;
-    gap:25px;
-}
-
-.nav-links a{
-    color:white;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:var(--cream);
-}
-
-/* HERO */
-
-.hero{
-    min-height:100vh;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    background:
-    linear-gradient(
-    135deg,
-    var(--primary),
-    var(--secondary),
-    var(--accent)
-    );
-
-    color:white;
-}
-
-.hero-content{
-    max-width:800px;
-    padding:20px;
-}
-
-.profile-image{
-    width:220px;
-    height:220px;
-
-    object-fit:cover;
-
-    border-radius:50%;
-
-    border:6px solid white;
-
-    margin-bottom:25px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.3);
-}
-
-.hero h1{
-    font-size:55px;
-    margin-bottom:10px;
-}
-
-.hero h2{
-    font-weight:400;
-    margin-bottom:20px;
-}
-
-.hero p{
-    line-height:1.8;
-}
-
-.btn{
-    display:inline-block;
-
-    margin-top:25px;
-
-    padding:12px 30px;
-
-    border-radius:30px;
-
-    text-decoration:none;
-
-    background:white;
-
-    color:var(--primary);
-
-    font-weight:600;
-
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-5px);
-}
-
-/* SECTION */
-
-.section{
-    max-width:1200px;
-
-    margin:80px auto;
-
-    padding:50px;
-
-    background:white;
-
-    border-radius:25px;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.section-title h2{
-    color:var(--primary);
-    font-size:38px;
-}
-
-.section-title p{
-    color:#666;
-}
-
-/* ABOUT */
-
-.about{
-    display:grid;
-    grid-template-columns:1fr 2fr;
-    gap:40px;
-    align-items:center;
-}
-
-.about img{
-    width:100%;
-    border-radius:20px;
-}
-
-.skills{
-    margin-top:20px;
-}
-
-.skills span{
-    display:inline-block;
-
-    background:var(--light);
-
-    color:white;
-
-    padding:10px 18px;
-
-    border-radius:30px;
-
-    margin:5px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-.about{
-    grid-template-columns:1fr;
-}
-
-.hero h1{
-    font-size:40px;
-}
-
-.nav-links{
-    display:none;
-}
-
-.profile-image{
-    width:180px;
-    height:180px;
-}
-
-.section{
-    margin:30px 15px;
-    padding:30px;
-}
-
-}
-
-</style>
 </head>
 
 <body>
 
-<nav>
+    <!-- NAVBAR -->
 
-<div class="logo">
-NINDYA
-</div>
+    <nav>
 
-<div class="nav-links">
-<a href="#about">Tentang</a>
-<a href="#portfolio">Portofolio</a>
-<a href="#video">Video</a>
-<a href="#maps">Lokasi</a>
-<a href="#contact">Kontak</a>
-<a href="login/login.html">Login</a>
-</div>
-
-</nav>
-
-<section class="hero">
-
-<div class="hero-content">
-
-<img src="assets/images/profile.jpg"
-class="profile-image">
-
-<h1>Nindya</h1>
-
-<h2>Design Grafis</h2>
-
-<p>
-Membuat ilustrasi dan desain kreatif menggunakan
-Ibis Paint X dan Canva untuk menghasilkan karya
-yang menarik, komunikatif, dan estetik.
-</p>
-
-<a href="#portfolio" class="btn">
-Lihat Karya
-</a>
-
-</div>
-
-</section>
-
-<section id="about" class="section">
-
-<div class="section-title">
-<h2>Tentang Saya</h2>
-<p>Mengenal lebih dekat tentang saya.</p>
-</div>
-
-<div class="about">
-
-<img src="assets/images/profile.jpg">
-
-<div>
-
-<h3>Halo, Saya Nindya</h3>
-
-<br>
-
-<p>
-Saya adalah seorang Design Grafis yang memiliki
-ketertarikan pada ilustrasi digital, poster,
-branding sederhana, dan desain media sosial.
-Karya saya dibuat menggunakan Ibis Paint X dan Canva.
-</p>
-
-<div class="skills">
-
-<span>Ibis Paint X</span>
-
-<span>Canva</span>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<section id="portfolio" class="section">
-
-    <div class="section-title">
-        <h2>Portofolio Karya</h2>
-        <p>Kumpulan karya desain dan ilustrasi digital.</p>
-    </div>
-
-    <div class="gallery">
-
-        <div class="gallery-item">
-            <img src="assets/images/1.jpg" alt="Karya 1">
+        <div class="logo">
+            NINDYA
         </div>
 
-        <div class="gallery-item">
-            <img src="assets/images/2.jpg" alt="Karya 2">
+        <div class="nav-links">
+
+            <a href="#about">Tentang</a>
+
+            <a href="#portfolio">Portofolio</a>
+
+            <a href="#video">Video</a>
+
+            <a href="#maps">Lokasi</a>
+
+            <a href="#contact">Kontak</a>
+
+            <a href="login/login.html">
+                Login
+            </a>
+
         </div>
 
-        <div class="gallery-item">
-            <img src="assets/images/3.png" alt="Karya 3">
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <img
+            src="assets/images/profile.jpg"
+            class="profile-image"
+            alt="Profile">
+
+            <h1>Nindya</h1>
+
+            <h2>Design Grafis</h2>
+
+            <p>
+                Membuat ilustrasi dan desain kreatif
+                menggunakan Ibis Paint X dan Canva.
+            </p>
+
+            <a href="#portfolio"
+            class="btn">
+
+            Lihat Karya
+
+            </a>
+
         </div>
 
-        <div class="gallery-item">
-            <img src="assets/images/4.png" alt="Karya 4">
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about"
+    class="section">
+
+        <div class="section-title">
+
+            <h2>Tentang Saya</h2>
+
+            <p>
+                Mengenal lebih dekat tentang saya.
+            </p>
+
         </div>
 
-        <div class="gallery-item">
-            <img src="assets/images/5.png" alt="Karya 5">
+        <div class="about">
+
+            <img
+            src="assets/images/profile.jpg"
+            alt="Profile">
+
+            <div>
+
+                <h3>
+                    Halo, Saya Nindya
+                </h3>
+
+                <br>
+
+                <p>
+                    Saya adalah seorang Design Grafis
+                    yang memiliki ketertarikan pada
+                    ilustrasi digital, poster,
+                    branding sederhana, dan desain
+                    media sosial.
+                </p>
+
+                <div class="skills">
+
+                    <span>
+                        Ibis Paint X
+                    </span>
+
+                    <span>
+                        Canva
+                    </span>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="gallery-item">
-            <img src="assets/images/6.jpg" alt="Karya 6">
+    </section>
+
+    <!-- PORTFOLIO -->
+
+    <section id="portfolio"
+    class="section">
+
+        <div class="section-title">
+
+            <h2>
+                Portofolio Karya
+            </h2>
+
+            <p>
+                Kumpulan karya desain dan ilustrasi.
+            </p>
+
         </div>
 
-        <div class="gallery-item">
-            <img src="assets/images/7.jpg" alt="Karya 7">
+        <div class="gallery">
+
+            <div class="gallery-item">
+                <img src="assets/images/1.jpg">
+            </div>
+
+            <div class="gallery-item">
+                <img src="assets/images/2.jpg">
+            </div>
+
+            <div class="gallery-item">
+                <img src="assets/images/3.png">
+            </div>
+
+            <div class="gallery-item">
+                <img src="assets/images/4.png">
+            </div>
+
+            <div class="gallery-item">
+                <img src="assets/images/5.png">
+            </div>
+
+            <div class="gallery-item">
+                <img src="assets/images/6.jpg">
+            </div>
+
+            <div class="gallery-item">
+                <img src="assets/images/7.jpg">
+            </div>
+
+            <div class="gallery-item">
+                <img src="assets/images/8.jpg">
+            </div>
+
+            <div class="gallery-item">
+                <img src="assets/images/9.jpg">
+            </div>
+
+            <div class="gallery-item">
+                <img src="assets/images/10.jpg">
+            </div>
+
+            <div class="gallery-item">
+                <img src="assets/images/11.jpg">
+            </div>
+
+            <div class="gallery-item">
+                <img src="assets/images/12.jpg">
+            </div>
+
         </div>
 
-        <div class="gallery-item">
-            <img src="assets/images/8.jpg" alt="Karya 8">
+    </section>
+
+    <!-- YOUTUBE -->
+
+    <section id="video"
+    class="section">
+
+        <div class="section-title">
+
+            <h2>
+                Video Showcase
+            </h2>
+
         </div>
 
-        <div class="gallery-item">
-            <img src="assets/images/9.jpg" alt="Karya 9">
+        <div class="video-container">
+
+            <iframe
+            src=""
+            allowfullscreen>
+            </iframe>
+
         </div>
 
-        <div class="gallery-item">
-            <img src="assets/images/10.jpg" alt="Karya 10">
+    </section>
+
+    <!-- MAPS -->
+
+    <section id="maps"
+    class="section">
+
+        <div class="section-title">
+
+            <h2>
+                Lokasi
+            </h2>
+
         </div>
 
-        <div class="gallery-item">
-            <img src="assets/images/11.jpg" alt="Karya 11">
+        <div class="maps-container">
+
+            <iframe
+            src=""
+            loading="lazy">
+            </iframe>
+
         </div>
 
-        <div class="gallery-item">
-            <img src="assets/images/12.jpg" alt="Karya 12">
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact"
+    class="section">
+
+        <div class="section-title">
+
+            <h2>
+                Kontak
+            </h2>
+
         </div>
 
-    </div>
+        <div class="contact-grid">
 
-</section>
+            <a
+            href="https://www.instagram.com/ninn.dyyaa?igsh=MW9pMzdhM2FtM3JmNw=="
+            target="_blank"
+            class="contact-card">
+
+            Instagram
+            <br>
+            @ninn.dyyaa
+
+            </a>
+
+            <a
+            href="https://www.tiktok.com/@ninnn_raa?_r=1&_t=ZS-9708ZC2ESZx"
+            target="_blank"
+            class="contact-card">
+
+            TikTok
+            <br>
+            @ninnn_raa
+
+            </a>
+
+            <a
+            href="mailto:nindya.aura.21@gmail.com"
+            class="contact-card">
+
+            Email
+            <br>
+            nindya.aura.21@gmail.com
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>
+            Nindya Portfolio
+        </h3>
+
+        <p>
+            Design Grafis | Ibis Paint X | Canva
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 All Rights Reserved
+        </p>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
