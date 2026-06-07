@@ -6,22 +6,9 @@
 
 <title>Login - Nindya Portfolio</title>
 
+<link rel="stylesheet" href="../css/style.css">
+
 <style>
-
-:root{
-    --primary:#3D441E;
-    --secondary:#6D712E;
-    --accent:#737B4C;
-    --light:#A2A569;
-    --cream:#B0AA7E;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
 
 body{
     min-height:100vh;
@@ -29,15 +16,16 @@ body{
     justify-content:center;
     align-items:center;
 
-    background:linear-gradient(
+    background:
+    linear-gradient(
     135deg,
-    var(--primary),
-    var(--secondary),
-    var(--accent)
+    #3D441E,
+    #6D712E,
+    #737B4C
     );
 }
 
-.login-container{
+.login-box{
 
     width:400px;
     max-width:90%;
@@ -48,21 +36,26 @@ body{
 
     border-radius:20px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.2);
 }
 
-.logo{
+.login-box h1{
 
     text-align:center;
-    margin-bottom:25px;
+
+    margin-bottom:10px;
+
+    color:#3D441E;
 }
 
-.logo h1{
-    color:var(--primary);
-}
+.login-box p{
 
-.logo p{
+    text-align:center;
+
     color:#666;
+
+    margin-bottom:25px;
 }
 
 .input-group{
@@ -73,14 +66,14 @@ body{
 .input-group label{
 
     display:block;
-    margin-bottom:8px;
 
-    color:#333;
+    margin-bottom:8px;
 }
 
 .input-group input{
 
     width:100%;
+
     padding:12px;
 
     border:2px solid #ddd;
@@ -92,10 +85,10 @@ body{
 
 .input-group input:focus{
 
-    border-color:var(--secondary);
+    border-color:#6D712E;
 }
 
-.login-btn{
+button{
 
     width:100%;
 
@@ -107,61 +100,41 @@ body{
 
     cursor:pointer;
 
-    background:var(--primary);
+    background:#3D441E;
 
     color:white;
 
     font-size:16px;
-
-    transition:.3s;
 }
 
-.login-btn:hover{
+button:hover{
 
-    background:var(--secondary);
+    background:#6D712E;
 }
 
 .links{
 
-    margin-top:20px;
-
     text-align:center;
+
+    margin-top:20px;
 }
 
 .links a{
 
     display:block;
 
-    margin:10px 0;
-
-    color:var(--primary);
+    margin:8px 0;
 
     text-decoration:none;
 
-    font-weight:500;
+    color:#3D441E;
 }
 
-.links a:hover{
-
-    text-decoration:underline;
-}
-
-.error{
-
-    color:red;
+#message{
 
     text-align:center;
 
-    margin-top:10px;
-}
-
-.success{
-
-    color:green;
-
-    text-align:center;
-
-    margin-top:10px;
+    margin-top:15px;
 }
 
 </style>
@@ -170,15 +143,11 @@ body{
 
 <body>
 
-<div class="login-container">
+<div class="login-box">
 
-    <div class="logo">
+    <h1>Login</h1>
 
-        <h1>Nindya</h1>
-
-        <p>Portfolio Login</p>
-
-    </div>
+    <p>Nindya Portfolio</p>
 
     <form id="loginForm">
 
@@ -190,6 +159,7 @@ body{
             type="text"
             id="username"
             required>
+
         </div>
 
         <div class="input-group">
@@ -200,19 +170,16 @@ body{
             type="password"
             id="password"
             required>
+
         </div>
 
-        <button
-        type="submit"
-        class="login-btn">
-
-        Login
-
+        <button type="submit">
+            Login
         </button>
 
-        <div id="message"></div>
-
     </form>
+
+    <div id="message"></div>
 
     <div class="links">
 
@@ -221,7 +188,7 @@ body{
         </a>
 
         <a href="forgot-password.html">
-            Lupa Password?
+            Lupa Password
         </a>
 
         <a href="../index.html">
@@ -233,6 +200,8 @@ body{
 </div>
 
 <script>
+
+// USER DEFAULT
 
 const defaultUsers = [
 
@@ -249,17 +218,21 @@ const defaultUsers = [
 
 ];
 
+// BUAT DATA USER
+
 if(!localStorage.getItem("users")){
 
     localStorage.setItem(
-    "users",
-    JSON.stringify(defaultUsers)
+        "users",
+        JSON.stringify(defaultUsers)
     );
+
 }
+
+// LOGIN
 
 document
 .getElementById("loginForm")
-
 .addEventListener("submit",function(e){
 
     e.preventDefault();
@@ -272,14 +245,14 @@ document
 
     const users =
     JSON.parse(
-    localStorage.getItem("users")
+        localStorage.getItem("users")
     );
 
     const user =
     users.find(
-    u =>
-    u.username === username &&
-    u.password === password
+        u =>
+        u.username === username &&
+        u.password === password
     );
 
     const message =
@@ -288,7 +261,12 @@ document
     if(user){
 
         message.innerHTML =
-        "<p class='success'>Login Berhasil!</p>";
+        "<p style='color:green;'>Login Berhasil!</p>";
+
+        localStorage.setItem(
+            "currentUser",
+            username
+        );
 
         setTimeout(()=>{
 
@@ -297,10 +275,13 @@ document
 
         },1000);
 
-    }else{
+    }
+
+    else{
 
         message.innerHTML =
-        "<p class='error'>Username atau Password Salah!</p>";
+        "<p style='color:red;'>Username atau Password Salah!</p>";
+
     }
 
 });
@@ -308,4 +289,5 @@ document
 </script>
 
 </body>
-</html>
+</html>>
+            
