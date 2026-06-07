@@ -3,91 +3,327 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Nindya</title>
+
+<title>Nindya Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+
 :root{
---c1:#3D441E;--c2:#6D712E;--c3:#737B4C;--c4:#A2A569;--c5:#B0AA7E;
+    --primary:#3D441E;
+    --secondary:#6D712E;
+    --accent:#737B4C;
+    --light:#A2A569;
+    --cream:#B0AA7E;
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f5f0}
-nav{position:fixed;top:0;width:100%;background:rgba(61,68,30,.95);padding:15px 8%;display:flex;justify-content:space-between;color:white}
-nav a{color:white;text-decoration:none;margin-left:15px}
-.hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,var(--c1),var(--c3));color:white;padding:20px}
-section{padding:80px 8%}
-h2{text-align:center;margin-bottom:20px;color:var(--c1)}
-.about{display:grid;grid-template-columns:1fr 2fr;gap:30px;align-items:center}
-.about img{width:100%;max-width:350px;border-radius:20px}
-.skills span{display:inline-block;background:var(--c4);padding:8px 12px;border-radius:20px;margin:5px}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.gallery img{width:100%;height:300px;object-fit:cover;border-radius:15px}
-.contact a{display:block;margin:10px 0;color:var(--c1)}
-footer{background:var(--c1);color:white;text-align:center;padding:20px}
-@media(max-width:768px){.about{grid-template-columns:1fr}}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f5f0;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 8%;
+
+    background:rgba(61,68,30,.95);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--cream);
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+    );
+
+    color:white;
+}
+
+.hero-content{
+    max-width:800px;
+    padding:20px;
+}
+
+.profile-image{
+    width:220px;
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:6px solid white;
+
+    margin-bottom:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.hero h2{
+    font-weight:400;
+    margin-bottom:20px;
+}
+
+.hero p{
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:12px 30px;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    background:white;
+
+    color:var(--primary);
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* SECTION */
+
+.section{
+    max-width:1200px;
+
+    margin:80px auto;
+
+    padding:50px;
+
+    background:white;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    color:var(--primary);
+    font-size:38px;
+}
+
+.section-title p{
+    color:#666;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:20px;
+}
+
+.skills{
+    margin-top:20px;
+}
+
+.skills span{
+    display:inline-block;
+
+    background:var(--light);
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    margin:5px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.about{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.nav-links{
+    display:none;
+}
+
+.profile-image{
+    width:180px;
+    height:180px;
+}
+
+.section{
+    margin:30px 15px;
+    padding:30px;
+}
+
+}
+
 </style>
 </head>
+
 <body>
 
 <nav>
-<div><b>Nindya Portfolio</b></div>
-<div>
-<a href="#about">Tentang</a>
-<a href="#portfolio">Galeri</a>
-<a href="#contact">Kontak</a>
+
+<div class="logo">
+NINDYA
 </div>
+
+<div class="nav-links">
+<a href="#about">Tentang</a>
+<a href="#portfolio">Portofolio</a>
+<a href="#video">Video</a>
+<a href="#maps">Lokasi</a>
+<a href="#contact">Kontak</a>
+<a href="login/login.html">Login</a>
+</div>
+
 </nav>
 
 <section class="hero">
-<div>
+
+<div class="hero-content">
+
+<img src="assets/images/profile.jpg"
+class="profile-image">
+
 <h1>Nindya</h1>
-<h3>Design Grafis</h3>
-<p>Membuat ilustrasi dan desain menggunakan Ibis Paint X dan Canva.</p>
+
+<h2>Design Grafis</h2>
+
+<p>
+Membuat ilustrasi dan desain kreatif menggunakan
+Ibis Paint X dan Canva untuk menghasilkan karya
+yang menarik, komunikatif, dan estetik.
+</p>
+
+<a href="#portfolio" class="btn">
+Lihat Karya
+</a>
+
 </div>
+
 </section>
 
-<section id="about">
+<section id="about" class="section">
+
+<div class="section-title">
 <h2>Tentang Saya</h2>
+<p>Mengenal lebih dekat tentang saya.</p>
+</div>
+
 <div class="about">
-<img src="assets/images/profile.jpg" alt="Profile">
+
+<img src="assets/images/profile.jpg">
+
 <div>
-<p>Halo, saya Nindya. Saya berfokus pada desain grafis, ilustrasi digital, dan karya kreatif menggunakan Ibis Paint X dan Canva.</p>
+
+<h3>Halo, Saya Nindya</h3>
+
+<br>
+
+<p>
+Saya adalah seorang Design Grafis yang memiliki
+ketertarikan pada ilustrasi digital, poster,
+branding sederhana, dan desain media sosial.
+Karya saya dibuat menggunakan Ibis Paint X dan Canva.
+</p>
+
 <div class="skills">
+
 <span>Ibis Paint X</span>
+
 <span>Canva</span>
+
 </div>
+
 </div>
+
 </div>
+
 </section>
-
-<section id="portfolio">
-<h2>Galeri Karya</h2>
-<div class="gallery">
-<img src="assets/images/1.jpg" alt="1">
-<img src="assets/images/2.jpg" alt="2">
-<img src="assets/images/3.png" alt="3">
-<img src="assets/images/4.png" alt="4">
-<img src="assets/images/5.png" alt="5">
-<img src="assets/images/6.jpg" alt="6">
-<img src="assets/images/7.jpg" alt="7">
-<img src="assets/images/8.jpg" alt="8">
-<img src="assets/images/9.jpg" alt="9">
-<img src="assets/images/10.jpg" alt="10">
-<img src="assets/images/11.jpg" alt="11">
-<img src="assets/images/12.jpg" alt="12">
-</div>
-</section>
-
-<section id="contact" class="contact">
-<h2>Kontak</h2>
-<a href="https://www.instagram.com/ninn.dyyaa">Instagram @ninn.dyyaa</a>
-<a href="https://www.tiktok.com/@ninnn_raa">TikTok @ninnn_raa</a>
-<a href="mailto:nindya.aura.21@gmail.com">nindya.aura.21@gmail.com</a>
-<a href="https://youtube.com/@nindyaauran.1257">YouTube</a>
-<a href="https://maps.app.goo.gl/f4kSN5Zp6hyG1VBK7">Google Maps</a>
-</section>
-
-<footer>
-<p>© 2026 Nindya Portfolio</p>
-</footer>
-
-</body>
-</html>
